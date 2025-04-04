@@ -1,21 +1,26 @@
-import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const Nav = styled(motion.nav)`
-  padding: 1.5rem 2rem;
+const Navbar = styled.nav`
+  background: transparent;
+  width: 70%;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
-  top: 0;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  z-index: 100;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border: 1.5px solid rgb(47, 34, 5);
+  border-radius: 25px;
+  position: relative;
+  background: white;
+  top: 10px;
 `;
 
 const Logo = styled(Link)`
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
   text-decoration: none;
   color: #1a1a1a;
@@ -26,44 +31,29 @@ const NavLinks = styled.div`
   gap: 2rem;
 `;
 
-const NavLink = styled(Link)`
-  text-decoration: none;
+const NavLink = styled.a`
   color: #1a1a1a;
+  text-decoration: none;
+  margin: 0 1rem;
   font-weight: 500;
-  position: relative;
-  
-  &:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: #1a1a1a;
-    transition: width 0.3s ease;
-  }
-  
-  &:hover:after {
-    width: 100%;
+
+  &:hover {
+    color: #666; /* Color al pasar el mouse */
   }
 `;
 
-const Navbar = () => {
+const NavbarComponent = () => {
   return (
-    <Nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <Navbar>
       <Logo to="/">JAVO</Logo>
       <NavLinks>
-        <NavLink to="#about">About</NavLink>
-        <NavLink to="#experience">Experience</NavLink>
-        <NavLink to="#projects">Projects</NavLink>
-        <NavLink to="#contact">Contact</NavLink>
+        <NavLink href="#about">About</NavLink>
+        <NavLink href="#experience">Experience</NavLink>
+        <NavLink href="#projects">Projects</NavLink>
+        <NavLink href="#contact">Contact</NavLink>
       </NavLinks>
-    </Nav>
+    </Navbar>
   );
 };
 
-export default Navbar; 
+export default NavbarComponent; 
