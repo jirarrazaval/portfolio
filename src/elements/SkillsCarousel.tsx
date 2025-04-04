@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const CarouselContainer = styled.div`
   overflow: hidden; /* Oculta el contenido que se sale del contenedor */
@@ -10,15 +10,7 @@ const CarouselContainer = styled.div`
 const SkillsWrapper = styled.div`
   display: flex;
   white-space: nowrap; /* Asegura que los elementos estén en una sola línea */
-  transition: transform 0.5s ease; /* Transición suave para el movimiento */
-  position: relative;
-  z-index: 1;
-  animation: scroll 8s linear infinite;
-
-  @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
+  animation: scroll 10s linear infinite; /* Animación continua */
 `;
 
 const Skill = styled.div`
@@ -31,23 +23,28 @@ const Skill = styled.div`
   margin-right: 1rem; /* Espacio entre habilidades */
 `;
 
+const FadeEffect = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgb(40, 27, 49) 0%,
+    transparent 15%,
+    transparent 85%,
+    rgb(40, 27, 49) 100%
+  );
+  pointer-events: none; /* Permite que los clics pasen a través de este elemento */
+`;
+
 const SkillsCarousel = () => {
-  const skills = ["Typescript", "Python", "React.js", "SQL", "Slack", "Notion", "Figma","Git", "AWS", "UX"];
-  const [offset, setOffset] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setOffset((prevOffset) => (prevOffset + 1) % skills.length);
-    }, 2000); // Cambia cada 2 segundos
-
-    return () => clearInterval(interval);
-  }, [skills.length]);
+  const skills = ["Typescript", "Python", "React.js", "SQL", "Figma", "Cursor", "Git", "AWS", "UX", "Slack", "Notion", "API Rest", "Django"];
 
   return (
     <CarouselContainer>
-      <SkillsWrapper
-        style={{ transform: `translateX(-${offset * (100 / skills.length)}%)` }} // Mueve el carrusel
-      >
+      <SkillsWrapper>
         {skills.map((skill, index) => (
           <Skill key={index}>{skill}</Skill>
         ))}
@@ -56,6 +53,7 @@ const SkillsCarousel = () => {
           <Skill key={index + skills.length}>{skill}</Skill>
         ))}
       </SkillsWrapper>
+      <FadeEffect /> {/* Efecto de degradado */}
     </CarouselContainer>
   );
 };
