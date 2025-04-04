@@ -14,7 +14,7 @@ const HeroSection = styled.section`
   justify-content: center;
   text-align: center;
   padding: 4rem 0;
-  background: linear-gradient(180deg, rgb(167, 110, 35), rgb(179, 139, 46));
+  background: radial-gradient(circle at 20% 30%, rgb(133, 87, 27), rgb(160, 121, 30));
   z-index: 1;
 `;
 

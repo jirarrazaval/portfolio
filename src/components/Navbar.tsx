@@ -36,16 +36,29 @@ const NavLink = styled.a`
   text-decoration: none;
   margin: 0 1rem;
   font-weight: 500;
+  font-size: 0.9rem;
+  position: relative;
 
   &:hover {
-    color: #666; /* Color al pasar el mouse */
+    color: rgb(167, 110, 35);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -5px;
+      height: 3px;
+      background-color: rgb(167, 110, 35);
+      transition: all 0.3s ease;
+    }
   }
 `;
 
 const NavbarComponent = () => {
   return (
     <Navbar>
-      <Logo to="/">JAVO</Logo>
+      <Logo to="/">JAVONOSA 🧼</Logo>
       <NavLinks>
         <NavLink href="#about">About</NavLink>
         <NavLink href="#experience">Experience</NavLink>
