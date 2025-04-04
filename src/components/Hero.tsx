@@ -41,9 +41,9 @@ const Image = styled.img`
 `;
 
 const Title = styled(motion.h1)`
-  font-family: var(--font-mono);
-  font-size: 5.3rem;
-  font-weight: 1000;
+  font-family: var(--font-code);
+  font-size: 4.2rem;
+  font-weight: 500;
   font-style: italic;
   margin-bottom: 1.5rem;
   line-height: 1;
@@ -86,7 +86,7 @@ const Subtitle = styled(motion.p)`
   font-size: 1.8rem;
   font-weight: 500;
   color: rgb(138, 72, 155);
-  width: 400px;
+  width: 500px;
 
   @media (max-width: 768px) {
     font-size: 1.4rem;
@@ -108,7 +108,7 @@ const Introduction = styled.h2`
 const Hero = () => {
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  const words = ['Product', 'Software'];
+  const words = ['product', 'software'];
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
@@ -141,7 +141,7 @@ const Hero = () => {
       <Content>
         <div>
           <div>
-            <Introduction>Hi, I'm Javi. A</Introduction>
+            <Introduction>hi, I'm Javi. a</Introduction>
             <Image src={ghibliComputer} alt="Ghibli Computer" />
           </div>
           <Title
@@ -149,14 +149,14 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <TypingText>{text}<span className="cursor">|</span></TypingText> Engineer
+            <TypingText>{text}<span className="cursor">|</span></TypingText> engineer
           </Title>
           <Subtitle
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Crafting Digital Experiences with Code & Creativity
+            who likes to craft digital experiences with code & creativity.
           </Subtitle>
         </div>
       </Content>

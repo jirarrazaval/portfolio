@@ -10,9 +10,9 @@ const Navbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(182, 108, 170, 0.67);
   z-index: 1000;
-  border: 1.5px solid rgb(47, 34, 5);
+  border: 1.5px solid rgb(169, 37, 149);
   border-radius: 25px;
   position: relative;
   background: white;
@@ -32,7 +32,7 @@ const NavLinks = styled.div`
 `;
 
 const NavLink = styled.a`
-  color: #1a1a1a;
+  color:rgb(26, 26, 26);
   text-decoration: none;
   margin: 0 1rem;
   font-weight: 500;
