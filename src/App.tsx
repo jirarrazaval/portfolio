@@ -10,7 +10,6 @@ import Contact from './components/Contact';
 import './App.css';
 
 const AppContainer = styled.div`
-  background-color: #ffffff;
   color: #1a1a1a;
   min-height: 100vh;
 `;

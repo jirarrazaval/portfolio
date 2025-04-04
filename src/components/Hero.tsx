@@ -8,14 +8,16 @@ const HeroSection = styled.section`
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 4rem 0;
-  background: radial-gradient(circle at 20% 30%, rgb(37, 20, 49), rgb(29, 16, 48));
+  background: linear-gradient(180deg, rgb(167, 110, 35), rgb(21, 8, 21)); /* Cambia a un degradado lineal */
+  animation: backgroundMove 1000s ease infinite;
   z-index: 1;
+  background-size: 200% 200%;
 `;
 
 const Content = styled.div`
@@ -41,7 +43,7 @@ const Image = styled.img`
 `;
 
 const Title = styled(motion.h1)`
-  font-family: var(--font-code);
+  font-family: 'Fira Code', monospace;
   font-size: 4.2rem;
   font-weight: 500;
   font-style: italic;
@@ -104,6 +106,7 @@ const Introduction = styled.h2`
   align-self: flex-start;
   width: 100%;
 `;
+
 
 const Hero = () => {
   const [text, setText] = useState('');

@@ -2,8 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
-}
+  text-align: center;}
 
 .logo {
   height: 6em;
@@ -42,8 +41,8 @@
 }
 
 ::selection {
-  background-color: rgb(138, 72, 155);
-  color: white;
+  background-color: rgb(51, 37, 54);
+  color: rgb(221, 171, 215);
 }
 
 .cursor {
@@ -60,3 +59,35 @@
     opacity: 0;
   }
 }
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  background-color: rgb(40, 27, 49);
+  color: rgba(65, 9, 9, 0.87);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  color: rgba(255, 255, 255, 0.87);
+}
+
+a {
+  color: rgba(255, 255, 255, 0.87);
+}
+
+a:hover {
+  color: rgb(167, 110, 35);
+}
+
+
