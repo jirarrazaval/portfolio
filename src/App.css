@@ -90,4 +90,15 @@ a:hover {
   color: rgb(167, 110, 35);
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Ajusta este valor según la cantidad de habilidades */
+  }
+}
+
+
+
 
