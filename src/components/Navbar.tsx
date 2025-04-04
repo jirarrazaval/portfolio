@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = styled.nav`
   background: transparent;
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
   padding: 1.2rem 2rem;
   display: flex;
@@ -16,7 +16,7 @@ const Navbar = styled.nav`
   border-radius: 25px;
   position: relative;
   background: white;
-  top: 10px;
+  top: 0px;
 `;
 
 const Logo = styled(Link)`
@@ -40,7 +40,7 @@ const NavLink = styled.a`
   position: relative;
 
   &:hover {
-    color: rgb(167, 110, 35);
+    color: rgb(215, 58, 27);
     
     &::after {
       content: '';
@@ -49,7 +49,7 @@ const NavLink = styled.a`
       right: 0;
       bottom: -5px;
       height: 3px;
-      background-color: rgb(167, 110, 35);
+      background-color: rgb(225, 66, 52);
       transition: all 0.3s ease;
     }
   }

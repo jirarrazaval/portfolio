@@ -14,7 +14,7 @@ const HeroSection = styled.section`
   justify-content: center;
   text-align: center;
   padding: 4rem 0;
-  background: radial-gradient(circle at 20% 30%, rgb(133, 87, 27), rgb(160, 121, 30));
+  background: radial-gradient(circle at 20% 30%, rgb(37, 20, 49), rgb(29, 16, 48));
   z-index: 1;
 `;
 
@@ -46,7 +46,7 @@ const Title = styled(motion.h1)`
   font-weight: 1000;
   font-style: italic;
   margin-bottom: 1.5rem;
-  line-height: 1.1;
+  line-height: 1;
   color: #1a1a1a;
   letter-spacing: -0.02em;
   max-width: 900px;
@@ -62,25 +62,21 @@ const Title = styled(motion.h1)`
   }
 `;
 
-
 const TypingText = styled.span`
   display: inline-block;
-  width: 8ch; /* Reservar espacio para la palabra más larga */
   overflow: hidden;
   white-space: nowrap;
-  border-right: 2px solid #1a1a1a;
   animation: blink 0.7s step-end infinite alternate;
-  margin-right: 1rem; /* Separar de 'Engineer' */
-  visibility: visible; /* Mantener el espacio reservado */
-  min-width: 8ch; /* Asegurar que el espacio se mantenga */
-  height: 1em; /* Fijar la altura para evitar movimiento */
+  margin-right: 0.5rem;
+  min-width: 8.2ch;
+  height: 1em;
 
   @keyframes blink {
-    from {
+    0%, 100% {
       border-color: transparent;
     }
-    to {
-      border-color: #1a1a1a;
+    50% {
+      border-color: pink;
     }
   }
 `;
@@ -89,7 +85,7 @@ const Subtitle = styled(motion.p)`
   font-family: var(--font-subheading);
   font-size: 1.8rem;
   font-weight: 500;
-  color:rgb(46, 41, 5);
+  color: rgb(138, 72, 155);
   width: 400px;
 
   @media (max-width: 768px) {
@@ -97,27 +93,10 @@ const Subtitle = styled(motion.p)`
   }
 `;
 
-const Description = styled(motion.p)`
-  font-family: var(--font-light);
-  font-size: 1.2rem;
-  color: #1a1a1a;
-  line-height: 1.8;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  font-weight: 200;
-  max-width: 600px;
-  margin-left: 0;
-  margin-right: auto;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
 const Introduction = styled.h2`
   font-family: var(--font-subheading);
   font-size: 2rem;
-  color: #1a1a1a;
+  color:rgb(194, 194, 194);
   margin-bottom: 1rem;
   margin-left: 0;
   margin-right: auto;
@@ -170,7 +149,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <TypingText>{text}</TypingText> Engineer
+            <TypingText>{text}<span className="cursor">|</span></TypingText> Engineer
           </Title>
           <Subtitle
             initial={{ opacity: 0, y: 20 }}
@@ -179,15 +158,6 @@ const Hero = () => {
           >
             Crafting Digital Experiences with Code & Creativity
           </Subtitle>
-          {/* <Description
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Passionate about building innovative solutions that combine technical excellence
-            with user-centered design. From software development to product management,
-            I bring ideas to life with a creative and analytical approach.
-          </Description> */}
         </div>
       </Content>
     </HeroSection>
