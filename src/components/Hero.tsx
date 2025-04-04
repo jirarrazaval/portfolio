@@ -8,17 +8,22 @@ const HeroSection = styled.section`
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100vh;
+  min-height: 95vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 4rem 0;
-  background: linear-gradient(180deg, rgb(167, 110, 35), rgb(21, 8, 21)); /* Cambia a un degradado lineal */
+  background: linear-gradient(180deg, rgb(216, 205, 216)5%, hsl(300, 47.80%, 36.10%) 150%);
   animation: backgroundMove 1000s ease infinite;
   z-index: 1;
   background-size: 200% 200%;
+  overflow: hidden;
 `;
+
+// linear-gradient(180deg, rgb(167, 110, 35), rgb(21, 8, 21));
+// radial-gradient(circle at 150% 100%,rgb(212, 118, 210) 5%, #28112B 80%);
+// linear-gradient(180deg, rgb(41, 16, 41)5%, hsl(300, 47.80%, 36.10%) 150%); 
 
 const Content = styled.div`
   width: 100%;
@@ -43,13 +48,13 @@ const Image = styled.img`
 `;
 
 const Title = styled(motion.h1)`
+  color:rgb(107, 9, 131);
   font-family: 'Fira Code', monospace;
   font-size: 4.2rem;
-  font-weight: 500;
+  font-weight: 5900;
   font-style: italic;
   margin-bottom: 1.5rem;
   line-height: 1;
-  color: #1a1a1a;
   letter-spacing: -0.02em;
   max-width: 900px;
   margin-left: auto;
@@ -57,7 +62,6 @@ const Title = styled(motion.h1)`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  color: white;
 
   @media (max-width: 768px) {
     font-size: 3.5rem;
@@ -84,21 +88,18 @@ const TypingText = styled.span`
 `;
 
 const Subtitle = styled(motion.p)`
-  font-family: var(--font-subheading);
-  font-size: 1.8rem;
-  font-weight: 500;
-  color: rgb(138, 72, 155);
-  width: 500px;
-
-  @media (max-width: 768px) {
-    font-size: 1.4rem;
-  }
+  font-family: var(--sigmar);
+  font-weight: 300;
+  font-size: 1.7rem;
+  color: rgb(24, 1, 29);
+  width: 600px;
 `;
 
 const Introduction = styled.h2`
-  font-family: var(--font-subheading);
-  font-size: 2rem;
-  color:rgb(194, 194, 194);
+  font-family: var(--sigmar);
+  font-weight: 300;
+  font-size: 1.7rem;
+  color:rgb(33, 30, 30);
   margin-bottom: 1rem;
   margin-left: 0;
   margin-right: auto;
@@ -107,6 +108,17 @@ const Introduction = styled.h2`
   width: 100%;
 `;
 
+const ShadowCursor = styled.div<{ x: number; y: number }>`
+  position: absolute;
+  top: ${({ y }) => y}px;
+  left: ${({ x }) => x}px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(128, 0, 128, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+  transition: transform 0.1s ease;
+`;
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -114,6 +126,7 @@ const Hero = () => {
   const words = ['product', 'software'];
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleType = () => {
@@ -139,8 +152,13 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [text, isDeleting]);
 
+  const handleMouseMove = (e: React.MouseEvent) => {
+    setCursorPosition({ x: e.clientX - 25, y: e.clientY - 25 });
+  };
+
   return (
-    <HeroSection>
+    <HeroSection onMouseMove={handleMouseMove}>
+      <ShadowCursor x={cursorPosition.x} y={cursorPosition.y} />
       <Content>
         <div>
           <div>
